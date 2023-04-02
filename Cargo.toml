@@ -1,0 +1,26 @@
+[package]
+name = "testy"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m-rt = "0.7"
+cortex-m = { version = "0.7", features = ["critical-section-single-core"]}
+defmt-rtt = "0.4"
+panic-probe = "*"
+
+# [dependencies.embassy-stm32]
+# git = "https://github.com/embassy-rs/embassy.git"
+# features = ["stm32f407ig"]
+# optional = true
+
+[dependencies.stm32f4xx-hal]
+version = "0.14"
+features = [ "stm32f407" ]
+optional = true
+
+[profile.release]
+debug = 2
+lto = true
